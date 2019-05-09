@@ -4,9 +4,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface BestBuyApi {
 
-    @GET("products?format=json&apiKey=YQdX4YGQXWpMxkGpZKvl3fXR")
-    Call<JsonData>getProducts();
+    @GET("products")
+    Call<JsonData>getProducts(
+            @Query("format")String format,
+            @Query("apiKey")String apiKey
+    );
 }
