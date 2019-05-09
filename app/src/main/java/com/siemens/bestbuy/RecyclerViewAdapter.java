@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -92,5 +93,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             imageRating = itemView.findViewById(R.id.image_rating);
 
         }
+    }
+
+    public void addProducts(List<Products> products){
+        for(Products product: products){
+            mImageName.add(product.getName());
+            mImages.add(product.getImage());
+            mPrice.add(product.getSalePrice());
+            mReleaseDate.add(product.getStartDate());
+            mRating.add(product.getCustomerReviewAverage());
+        }
+        notifyDataSetChanged();
     }
 }
